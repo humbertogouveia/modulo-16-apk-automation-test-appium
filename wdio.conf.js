@@ -9,13 +9,13 @@ exports.config = {
     ],
     framework: 'mocha',
     capabilities: [{
-        "platformName": "Android",
-        "platformVersion": "9",
-        "deviceName": "ebac9",
-        "automationName": "UiAutomator2",
+        platformName: "Android",
+        platformVersion: "9",
+        deviceName: "ebac9",
+        automationName: "UiAutomator2",
         app: join(process.cwd(),'app/Android-NativeDemoApp-0.4.0.apk'),
-        "appPackpage": "com.wdiodemoapp",
-        "appWaitActivity": "com.wdiodemoapp.MainActivity"
+        appPackpage: "com.wdiodemoapp",
+        appWaitActivity: "com.wdiodemoapp.MainActivity"
 
     }]
 }
