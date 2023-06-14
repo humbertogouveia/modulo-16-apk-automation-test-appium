@@ -4,7 +4,7 @@ class FormScreen {
   }
 
   get campoResultadoDoTextoDigitado() {
-    return $("~input-text-result")
+    return $("~input-text-result").getText()
   }
 
   get botaoSwitch() {
@@ -35,17 +35,17 @@ class FormScreen {
     return $("~button-Inactive")
   }
 
-  async preencherFormulario() {
-    await this.inputDigiteAlgo.addValue("Humberto Gouveia")
-    expect(this.campoResultadoDoTextoDigitado).toHaveText("Humberto Gouveia")
-
-    await this.botaoSwitch.toHaveAttribute("checked")
-
-    await this.dropdown.waitForClickable({timeout:5000,timeoutMsg:'O elemento não ficou disponivel após 5 segundos'})
+  async preencherFormulario(textoAleatorio) {
+    await this.inputDigiteAlgo.addValue(textoAleatorio)
+    await this.botaoSwitch.click()
     await this.dropdown.click()
-    await this.dropdownPrimeiraOpcao.waitForDisplayed({timeout:5000,timeoutMsg:'O elemento do dropdown não ficou visivel após 5 segundos'})
     await this.dropdownPrimeiraOpcao.click()
-    expect("webdriver.io is awesome").toBeExisting({wait:5000})
+
+  }
+  async validarFormulario(textoDigitado) {
+    expect(await this.campoResultadoDoTextoDigitado).toHaveText(textoDigitado)
+    expect(await this.textoBotaoSwitch).toHaveText("Click to Turn the switch ON")
+    expect(await this.dropdown).toHaveText('webdriver.io is awesome')
     expect(this.botaoAtivo).toBeEnabled()
   }
 }

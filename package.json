@@ -19,5 +19,5 @@
     "@wdio/mocha-framework": "^8.11.0",
     "@wdio/spec-reporter": "^8.11.0"
   },
-  "description": ""
+  "description": "Desafio EBAC do modulo 16 sobre automacao de testes mobile"
 }
